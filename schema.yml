@@ -1,0 +1,121 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /snippets/:
+    get:
+      operationId: snippets_list
+      parameters:
+      - in: query
+        name: page
+        schema:
+          description: A page number within the paginated result set.
+          title: !!python/tuple
+          - Page
+          type: integer
+      tags:
+      - snippets
+    post:
+      operationId: snippets_create
+      tags:
+      - snippets
+  /snippets/{id}/:
+    delete:
+      operationId: snippets_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this snippet.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - snippets
+    get:
+      operationId: snippets_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this snippet.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - snippets
+    patch:
+      operationId: snippets_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this snippet.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - snippets
+    put:
+      operationId: snippets_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this snippet.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - snippets
+  /snippets/{id}/highlight/:
+    get:
+      operationId: snippets_highlight
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this snippet.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - snippets
+  /users/:
+    get:
+      description: This viewset automatically provides 'list' and 'detail' actions.
+      operationId: users_list
+      parameters:
+      - in: query
+        name: page
+        schema:
+          description: A page number within the paginated result set.
+          title: !!python/tuple
+          - Page
+          type: integer
+      tags:
+      - users
+  /users/{id}/:
+    get:
+      description: This viewset automatically provides 'list' and 'detail' actions.
+      operationId: users_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this user.
+          title: !!python/tuple
+          - ID
+          type: integer
+      tags:
+      - users
+servers:
+- url: ''

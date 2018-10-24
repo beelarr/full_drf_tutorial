@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from rest_framework.schemas import get_schema_view
+
+schema_view =  get_schema_view(title='Bryons API')
 
 urlpatterns = [
+    path('schema/', schema_view),
     path('admin/', admin.site.urls),
     path('', include('snippets.urls')),
     path('auth/', include('rest_framework.urls'))
